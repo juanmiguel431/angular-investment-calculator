@@ -1,4 +1,4 @@
-import { CalculateInvestmentResultsProps, CalculateInvestmentResultsReturn } from './models';
+import type { CalculateInvestmentResultsProps, CalculateInvestmentResultsReturn } from './models';
 
 // Use the below code as a help
 // e.g., integrate it into a service or component
