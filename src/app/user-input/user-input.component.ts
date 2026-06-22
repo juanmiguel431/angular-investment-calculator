@@ -16,7 +16,7 @@ export class UserInputComponent {
 
   public onSubmit = output<CalculateInvestmentResultsProps>();
 
-  protected _onSubmit() {
+  protected onFormSubmitted() {
     this.onSubmit.emit({
       initialInvestment: this.initialInvestment ?? 0,
       annualInvestment: this.annualInvestment ?? 0,
