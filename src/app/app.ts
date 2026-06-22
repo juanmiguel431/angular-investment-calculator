@@ -1,21 +1,21 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
-import { CalculateInvestmentResultsProps } from '../models';
+import type { CalculateInvestmentResultsProps, CalculateInvestmentResultsReturn } from '../models';
 import { calculateInvestmentResults } from '../investment-results';
+import { InvestmentResultComponent } from './investment-result/investment-result.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, UserInputComponent],
+  imports: [HeaderComponent, UserInputComponent, InvestmentResultComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('investment-calculator');
+  protected investment: CalculateInvestmentResultsReturn[] = [];
 
   protected onUserInputSubmit(event: CalculateInvestmentResultsProps) {
-    const investmentResults = calculateInvestmentResults(event);
-    console.log(investmentResults);
+    this.investment = calculateInvestmentResults(event);
   }
 }
